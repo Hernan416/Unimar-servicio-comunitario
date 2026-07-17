@@ -22,43 +22,181 @@
 </head>
 <body class="min-h-screen bg-slate-950 text-white">
     <div class="mx-auto flex min-h-screen max-w-6xl flex-col px-4 py-8 sm:px-6 lg:px-8">
-        <header class="mb-8 rounded-[24px] border border-brand-cyan/30 bg-slate-900/70 p-6 shadow-2xl shadow-black/30">
-            <p class="text-sm uppercase tracking-[0.3em] text-brand-cyan">Marco regulatorio</p>
-            <h1 class="mt-2 text-3xl font-bold">MARCO REGULATORIO PARA EL USO DE UNA RED WIFI PÚBLICA</h1>
+        <header class="mb-6 rounded-[24px] border border-brand-cyan/30 bg-slate-900/70 p-6 shadow-2xl shadow-black/30">
+            <div class="mb-4 flex flex-wrap gap-2">
+                <button type="button" onclick="setLanguage('es')" class="lang-btn rounded-full border border-brand-cyan/40 px-3 py-1.5 text-sm font-semibold text-brand-cyan hover:bg-brand-cyan/10">Español</button>
+                <button type="button" onclick="setLanguage('en')" class="lang-btn rounded-full border border-brand-cyan/40 px-3 py-1.5 text-sm font-semibold text-brand-cyan hover:bg-brand-cyan/10">English</button>
+                <button type="button" onclick="setLanguage('pt')" class="lang-btn rounded-full border border-brand-cyan/40 px-3 py-1.5 text-sm font-semibold text-brand-cyan hover:bg-brand-cyan/10">Português</button>
+                <button type="button" onclick="setLanguage('ru')" class="lang-btn rounded-full border border-brand-cyan/40 px-3 py-1.5 text-sm font-semibold text-brand-cyan hover:bg-brand-cyan/10">Русский</button>
+            </div>
+            <p id="page-label" class="text-sm uppercase tracking-[0.3em] text-brand-cyan">Marco regulatorio</p>
+            <h1 id="page-title" class="mt-2 text-3xl font-bold">MARCO REGULATORIO PARA EL USO DE UNA RED WIFI PÚBLICA</h1>
         </header>
 
-        <main class="rounded-[24px] border border-brand-cyan/20 bg-slate-900/70 p-6 text-sm leading-7 text-gray-300">
-            <h2 class="mb-4 text-xl font-semibold text-brand-cyan">1. Bloque de Democratización y Acceso Prioritario</h2>
-            <p class="mb-2 font-semibold">Constitución de la República Bolivariana de Venezuela (CRBV)</p>
-            <p class="mb-2"><strong>• Artículo 108:</strong> "El Estado garantizará los servicios públicos de radio, televisión y redes de bibliotecas y de informática, con el fin de permitir el acceso a la información. Los centros educativos deben incorporar el conocimiento y aplicación de las nuevas tecnologías, en los términos que establezca la ley."</p>
-            <p class="mb-2"><strong>• Artículo 110:</strong> "El Estado reconocerá el interés público de la ciencia, la tecnología, el conocimiento, la innovación y sus aplicaciones y los servicios de información necesarios por ser instrumentos fundamentales para el desarrollo económico, social y político del país, así como para la seguridad y soberanía nacional..."</p>
-            <p class="mb-2"><strong>Decreto N° 825 (Gaceta Oficial N° 36.955)</strong></p>
-            <p class="mb-2"><strong>• Artículo 1:</strong> "Se declara el acceso y el uso de Internet como política prioritaria para el desarrollo cultural, económico, social y político de la República Bolivariana de Venezuela."</p>
-            <p class="mb-2"><strong>Ley de Infogobierno (Gaceta Oficial N° 40.274)</strong></p>
-            <p class="mb-2"><strong>• Artículo 20 (Garantía de participación y uso de tecnologías libres):</strong> "El Poder Público y el Poder Popular están obligados a garantizar en sus portales de internet el ejercicio del derecho de las personas a participar, colaborar y promover el uso de las tecnologías de información libres, creación de nuevos servicios electrónicos o mejoramiento de los existentes."</p>
-
-            <h2 class="mt-8 mb-4 text-xl font-semibold text-brand-cyan">2. Bloque de Regulación Técnica y Uso del Espectro</h2>
-            <p class="mb-2 font-semibold">Ley Orgánica de Telecomunicaciones (LOTEL)</p>
-            <p class="mb-2"><strong>• Artículo 4 (Definición de Telecomunicaciones y Espectro):</strong> "A los efectos de esta Ley se entiende por telecomunicaciones toda transmisión, emisión o recepción de signos, señales, imágenes, sonidos o informaciones de cualquier naturaleza por hilo, radioelectricidad, medios ópticos u otros sistemas electromagnéticos. Se entiende por espectro radioeléctrico la porción del espacio que rodea la Tierra a través de la cual pueden propagarse ondas electromagnéticas cuyas frecuencias están fijadas convencionalmente por debajo de tres mil gigahertz (3000 GHz), sin guía artificial."</p>
-            <p class="mb-2"><strong>• Artículo 5 (Interés General):</strong> "El establecimiento o explotación de redes de telecomunicaciones, así como la prestación de servicios de telecomunicaciones se consideran actividades de interés general, para cuyo ejercicio se requerirá la obtención previa de la correspondiente habilitación administrativa, concesión o permiso, en los términos establecidos en esta Ley y sus reglamentos..."</p>
-            <p class="mb-2"><strong>• Artículo 23, Numeral 2 (Excepción de uso libre para routers/APs):</strong> "No se requerirá habilitación administrativa ni concesión para: (...) 2. El uso de equipos radioeléctricos calificados técnicamente por la Comisión Nacional de Telecomunicaciones como de uso libre, de conformidad con el Cuadro Nacional de Atribución de Bandas de Frecuencia."</p>
-            <p class="mb-2"><strong>• Artículo 75 (Enlaces transitorios y pruebas piloto):</strong> "No se requerirá la obtención de una concesión de uso del espectro radioeléctrico para: 1. Enlaces transitorios punto a punto (...) cuya duración no exceda de tres días continuos. 2. Pruebas piloto experimentales autorizadas por la Comisión Nacional de Telecomunicaciones, cuya duración no exceda de tres meses. 3. El uso de las bandas de frecuencias que la Comisión Nacional de Telecomunicaciones califique como de uso libre..."</p>
-            <p class="mb-2"><strong>Cuadro Nacional de Atribución de Bandas de Frecuencia (CUNABAF)</strong></p>
-            <p class="mb-2"><strong>• Atribución de Bandas Libres (Extracto Técnico aplicable a redes WLAN):</strong> Establece que las bandas de frecuencias industriales, científicas y médicas (ISM) de 2400 MHz a 2483.5 MHz y las bandas del servicio de acceso inalámbrico (incluyendo redes U-NII en los rangos de 5 GHz) son de uso libre. Esto faculta a cualquier ciudadano o comunidad a operar equipos bajo el estándar 802.11 (Wi-Fi) sin necesidad de asignación exclusiva de frecuencias, siempre que no superen las potencias de transmisión máximas fijadas (generalmente 1 W o 4 W EIRP según la banda).</p>
-
-            <h2 class="mt-8 mb-4 text-xl font-semibold text-brand-cyan">3. Bloque de Derechos, Deberes y Seguridad de la Información</h2>
-            <p class="mb-2 font-semibold">Ley Orgánica de Telecomunicaciones (LOTEL) - Relación de Usuarios</p>
-            <p class="mb-2"><strong>• Artículo 12 (Derechos del Usuario):</strong> "Los usuarios y usuarias de los servicios de telecomunicaciones gozan de los siguientes derechos: 1. Acceder en igualdad de condiciones a los servicios de telecomunicaciones públicos. 2. La privacidad, confidencialidad e inviolabilidad de sus telecomunicaciones, salvo orden judicial dictada de conformidad con la ley..."</p>
-            <p class="mb-2"><strong>• Artículo 13 (Deberes del Usuario):</strong> "Los usuarios y usuarias de los servicios de telecomunicaciones tienen los siguientes deberes: 1. Pagar oportunamente los servicios que reciban... (...) 2. Hacer un uso adecuado y lícito de las redes y servicios de telecomunicaciones. 3. Colaborar con la Comisión Nacional de Telecomunicaciones informando sobre las infracciones o irregularidades de las que tengan conocimiento."</p>
-            <p class="mb-2"><strong>Ley Contra los Delitos Informáticos (Gaceta Oficial N° 37.319)</strong></p>
-            <p class="mb-2"><strong>• Artículo 6 (Acceso indebido a los sistemas de administración del Wi-Fi):</strong> "El que sin la debida autorización o excediendo la que hubiere obtenido, acceda, intercepte, interfiera o use un sistema que utilice tecnologías de información, será sancionado con prisión de uno a cinco años y multa de diez a cincuenta unidades tributarias."</p>
-            <p class="mb-2"><strong>• Artículo 7 (Sabotaje o daño a sistemas):</strong> "El que destruya, dañe, modifique o realice cualquier acto que altere el funcionamiento o inutilice un sistema que utilice tecnologías de información o cualesquiera de los componentes que lo integran, será sancionado con prisión de cuatro a ocho años y multa de cuarenta a ochenta unidades tributarias."</p>
-            <p class="mb-2"><strong>• Artículo 11 (Espionaje informático / Intercepción de datos de usuarios):</strong> "El que indebidamente obtenga, revele o difunda la data o información contenida en un sistema que utilice tecnologías de información o en cualquiera de sus componentes, será sancionado con prisión de cuatro a ocho años y multa de cuarenta a ochenta unidades tributarias."</p>
-        </main>
+        <main id="content" class="rounded-[24px] border border-brand-cyan/20 bg-slate-900/70 p-6 text-sm leading-7 text-gray-300"></main>
 
         <div class="mt-8 text-center">
-            <a href="Landing-page-unimar.html" class="inline-flex rounded-full border border-brand-cyan/40 px-4 py-2 text-sm font-semibold text-brand-cyan hover:bg-brand-cyan/10">Volver a la página principal</a>
+            <a href="index.html" class="inline-flex rounded-full border border-brand-cyan/40 px-4 py-2 text-sm font-semibold text-brand-cyan hover:bg-brand-cyan/10" id="back-link">Volver a la página principal</a>
         </div>
     </div>
+
+    <script>
+        const translations = {
+            es: {
+                label: 'Marco regulatorio',
+                title: 'MARCO REGULATORIO PARA EL USO DE UNA RED WIFI PÚBLICA',
+                backLink: 'Volver a la página principal',
+                content: `
+                    <h2 class="mb-4 text-xl font-semibold text-brand-cyan">1. Bloque de Democratización y Acceso Prioritario</h2>
+                    <p class="mb-2 font-semibold">Constitución de la República Bolivariana de Venezuela (CRBV)</p>
+                    <p class="mb-2"><strong>• Artículo 108:</strong> "El Estado garantizará los servicios públicos de radio, televisión y redes de bibliotecas y de informática, con el fin de permitir el acceso a la información. Los centros educativos deben incorporar el conocimiento y aplicación de las nuevas tecnologías, en los términos que establezca la ley."</p>
+                    <p class="mb-2"><strong>• Artículo 110:</strong> "El Estado reconocerá el interés público de la ciencia, la tecnología, el conocimiento, la innovación y sus aplicaciones y los servicios de información necesarios por ser instrumentos fundamentales para el desarrollo económico, social y político del país, así como para la seguridad y soberanía nacional..."</p>
+                    <p class="mb-2"><strong>Decreto N° 825 (Gaceta Oficial N° 36.955)</strong></p>
+                    <p class="mb-2"><strong>• Artículo 1:</strong> "Se declara el acceso y el uso de Internet como política prioritaria para el desarrollo cultural, económico, social y político de la República Bolivariana de Venezuela."</p>
+                    <p class="mb-2"><strong>Ley de Infogobierno (Gaceta Oficial N° 40.274)</strong></p>
+                    <p class="mb-2"><strong>• Artículo 20 (Garantía de participación y uso de tecnologías libres):</strong> "El Poder Público y el Poder Popular están obligados a garantizar en sus portales de internet el ejercicio del derecho de las personas a participar, colaborar y promover el uso de las tecnologías de información libres, creación de nuevos servicios electrónicos o mejoramiento de los existentes."</p>
+
+                    <h2 class="mt-8 mb-4 text-xl font-semibold text-brand-cyan">2. Bloque de Regulación Técnica y Uso del Espectro</h2>
+                    <p class="mb-2 font-semibold">Ley Orgánica de Telecomunicaciones (LOTEL)</p>
+                    <p class="mb-2"><strong>• Artículo 4 (Definición de Telecomunicaciones y Espectro):</strong> "A los efectos de esta Ley se entiende por telecomunicaciones toda transmisión, emisión o recepción de signos, señales, imágenes, sonidos o informaciones de cualquier naturaleza por hilo, radioelectricidad, medios ópticos u otros sistemas electromagnéticos. Se entiende por espectro radioeléctrico la porción del espacio que rodea la Tierra a través de la cual pueden propagarse ondas electromagnéticas cuyas frecuencias están fijadas convencionalmente por debajo de tres mil gigahertz (3000 GHz), sin guía artificial."</p>
+                    <p class="mb-2"><strong>• Artículo 5 (Interés General):</strong> "El establecimiento o explotación de redes de telecomunicaciones, así como la prestación de servicios de telecomunicaciones se consideran actividades de interés general, para cuyo ejercicio se requerirá la obtención previa de la correspondiente habilitación administrativa, concesión o permiso, en los términos establecidos en esta Ley y sus reglamentos..."</p>
+                    <p class="mb-2"><strong>• Artículo 23, Numeral 2 (Excepción de uso libre para routers/APs):</strong> "No se requerirá habilitación administrativa ni concesión para: (...) 2. El uso de equipos radioeléctricos calificados técnicamente por la Comisión Nacional de Telecomunicaciones como de uso libre, de conformidad con el Cuadro Nacional de Atribución de Bandas de Frecuencia."</p>
+                    <p class="mb-2"><strong>• Artículo 75 (Enlaces transitorios y pruebas piloto):</strong> "No se requerirá la obtención de una concesión de uso del espectro radioeléctrico para: 1. Enlaces transitorios punto a punto (...) cuya duración no exceda de tres días continuos. 2. Pruebas piloto experimentales autorizadas por la Comisión Nacional de Telecomunicaciones, cuya duración no exceda de tres meses. 3. El uso de las bandas de frecuencias que la Comisión Nacional de Telecomunicaciones califique como de uso libre..."</p>
+                    <p class="mb-2"><strong>Cuadro Nacional de Atribución de Bandas de Frecuencia (CUNABAF)</strong></p>
+                    <p class="mb-2"><strong>• Atribución de Bandas Libres (Extracto Técnico aplicable a redes WLAN):</strong> Establece que las bandas de frecuencias industriales, científicas y médicas (ISM) de 2400 MHz a 2483.5 MHz y las bandas del servicio de acceso inalámbrico (incluyendo redes U-NII en los rangos de 5 GHz) son de uso libre. Esto faculta a cualquier ciudadano o comunidad a operar equipos bajo el estándar 802.11 (Wi-Fi) sin necesidad de asignación exclusiva de frecuencias, siempre que no superen las potencias de transmisión máximas fijadas (generalmente 1 W o 4 W EIRP según la banda).</p>
+
+                    <h2 class="mt-8 mb-4 text-xl font-semibold text-brand-cyan">3. Bloque de Derechos, Deberes y Seguridad de la Información</h2>
+                    <p class="mb-2 font-semibold">Ley Orgánica de Telecomunicaciones (LOTEL) - Relación de Usuarios</p>
+                    <p class="mb-2"><strong>• Artículo 12 (Derechos del Usuario):</strong> "Los usuarios y usuarias de los servicios de telecomunicaciones gozan de los siguientes derechos: 1. Acceder en igualdad de condiciones a los servicios de telecomunicaciones públicos. 2. La privacidad, confidencialidad e inviolabilidad de sus telecomunicaciones, salvo orden judicial dictada de conformidad con la ley..."</p>
+                    <p class="mb-2"><strong>• Artículo 13 (Deberes del Usuario):</strong> "Los usuarios y usuarias de los servicios de telecomunicaciones tienen los siguientes deberes: 1. Pagar oportunamente los servicios que reciban... (...) 2. Hacer un uso adecuado y lícito de las redes y servicios de telecomunicaciones. 3. Colaborar con la Comisión Nacional de Telecomunicaciones informando sobre las infracciones o irregularidades de las que tengan conocimiento."</p>
+                    <p class="mb-2"><strong>Ley Contra los Delitos Informáticos (Gaceta Oficial N° 37.319)</strong></p>
+                    <p class="mb-2"><strong>• Artículo 6 (Acceso indebido a los sistemas de administración del Wi-Fi):</strong> "El que sin la debida autorización o excediendo la que hubiere obtenido, acceda, intercepte, interfiera o use un sistema que utilice tecnologías de información, será sancionado con prisión de uno a cinco años y multa de diez a cincuenta unidades tributarias."</p>
+                    <p class="mb-2"><strong>• Artículo 7 (Sabotaje o daño a sistemas):</strong> "El que destruya, dañe, modifique o realice cualquier acto que altere el funcionamiento o inutilice un sistema que utilice tecnologías de información o cualesquiera de los componentes que lo integran, será sancionado con prisión de cuatro a ocho años y multa de cuarenta a ochenta unidades tributarias."</p>
+                    <p class="mb-2"><strong>• Artículo 11 (Espionaje informático / Intercepción de datos de usuarios):</strong> "El que indebidamente obtenga, revele o difunda la data o información contenida en un sistema que utilice tecnologías de información o en cualquiera de sus componentes, será sancionado con prisión de cuatro a ocho años y multa de cuarenta a ochenta unidades tributarias."</p>
+                `
+            },
+            en: {
+                label: 'Regulatory framework',
+                title: 'REGULATORY FRAMEWORK FOR THE USE OF A PUBLIC WI-FI NETWORK',
+                backLink: 'Back to the main page',
+                content: `
+                    <h2 class="mb-4 text-xl font-semibold text-brand-cyan">1. Block on Democratization and Priority Access</h2>
+                    <p class="mb-2 font-semibold">Constitution of the Bolivarian Republic of Venezuela (CRBV)</p>
+                    <p class="mb-2"><strong>• Article 108:</strong> "The State shall guarantee public services of radio, television and library and computer network services, in order to allow access to information. Educational centers must incorporate knowledge and application of new technologies, under the terms established by law."</p>
+                    <p class="mb-2"><strong>• Article 110:</strong> "The State shall recognize the public interest of science, technology, knowledge, innovation and their applications and the information services necessary because they are fundamental instruments for the economic, social and political development of the country, as well as for national security and sovereignty..."</p>
+                    <p class="mb-2"><strong>Decree No. 825 (Official Gazette No. 36,955)</strong></p>
+                    <p class="mb-2"><strong>• Article 1:</strong> "Internet access and use are declared a priority policy for the cultural, economic, social and political development of the Bolivarian Republic of Venezuela."</p>
+                    <p class="mb-2"><strong>Infogovernment Law (Official Gazette No. 40,274)</strong></p>
+                    <p class="mb-2"><strong>• Article 20 (Guarantee of participation and use of free technologies):</strong> "The Public Power and the Popular Power are obligated to guarantee, in their internet portals, the exercise of the right of persons to participate, collaborate and promote the use of free information technologies, creation of new electronic services or improvement of existing ones."</p>
+
+                    <h2 class="mt-8 mb-4 text-xl font-semibold text-brand-cyan">2. Technical Regulation and Spectrum Use Block</h2>
+                    <p class="mb-2 font-semibold">Organic Telecommunications Law (LOTEL)</p>
+                    <p class="mb-2"><strong>• Article 4 (Definition of Telecommunications and Spectrum):</strong> "For the purposes of this Law, telecommunications shall mean any transmission, emission or reception of signs, signals, images, sounds or information of any nature by wire, radioelectricity, optical media or other electromagnetic systems. Radioelectric spectrum shall mean the portion of space around the Earth through which electromagnetic waves with frequencies conventionally fixed below three thousand gigahertz (3000 GHz) can propagate without artificial guidance."</p>
+                    <p class="mb-2"><strong>• Article 5 (General Interest):</strong> "The establishment or operation of telecommunications networks, as well as the provision of telecommunications services, are considered activities of general interest, for the exercise of which prior administrative authorization, concession or permit shall be required, under the terms established in this Law and its regulations..."</p>
+                    <p class="mb-2"><strong>• Article 23, Paragraph 2 (Exception for free use of routers/APs):</strong> "Administrative authorization or concession shall not be required for: (...) 2. The use of radio equipment technically qualified by the National Telecommunications Commission as free use, in accordance with the National Frequency Allocation Table."</p>
+                    <p class="mb-2"><strong>• Article 75 (Transitory links and pilot tests):</strong> "Obtaining a concession for radio spectrum use shall not be required for: 1. Temporary point-to-point links (...) with a duration not exceeding three consecutive days. 2. Experimental pilot tests authorized by the National Telecommunications Commission, with a duration not exceeding three months. 3. The use of frequency bands that the National Telecommunications Commission qualifies as free use..."</p>
+                    <p class="mb-2"><strong>National Frequency Allocation Table (CUNABAF)</strong></p>
+                    <p class="mb-2"><strong>• Free Bands Allocation (Technical Extract Applicable to WLAN Networks):</strong> It establishes that the industrial, scientific and medical (ISM) frequency bands from 2400 MHz to 2483.5 MHz and the wireless access service bands (including U-NII networks in the 5 GHz ranges) are free use. This authorizes any citizen or community to operate equipment under the 802.11 standard (Wi-Fi) without the need for exclusive frequency assignment, provided they do not exceed the maximum transmission powers established (generally 1 W or 4 W EIRP according to the band).</p>
+
+                    <h2 class="mt-8 mb-4 text-xl font-semibold text-brand-cyan">3. Rights, Duties and Information Security Block</h2>
+                    <p class="mb-2 font-semibold">Organic Telecommunications Law (LOTEL) - User Relationship</p>
+                    <p class="mb-2"><strong>• Article 12 (User Rights):</strong> "Users of telecommunications services enjoy the following rights: 1. Access to public telecommunications services under equal conditions. 2. The privacy, confidentiality and inviolability of their telecommunications, except by judicial order issued in accordance with the law..."</p>
+                    <p class="mb-2"><strong>• Article 13 (User Duties):</strong> "Users of telecommunications services have the following duties: 1. Pay services received on time... (...) 2. Make appropriate and lawful use of telecommunications networks and services. 3. Collaborate with the National Telecommunications Commission by reporting infractions or irregularities of which they are aware."</p>
+                    <p class="mb-2"><strong>Law Against Computer Crimes (Official Gazette No. 37,319)</strong></p>
+                    <p class="mb-2"><strong>• Article 6 (Improper access to Wi-Fi administration systems):</strong> "Anyone who, without due authorization or exceeding that obtained, accesses, intercepts, interferes with or uses a system that uses information technologies, shall be punished with imprisonment of one to five years and a fine of ten to fifty tax units."</p>
+                    <p class="mb-2"><strong>• Article 7 (Sabotage or damage to systems):</strong> "Anyone who destroys, damages, modifies or performs any act that alters the operation or renders unusable a system that uses information technologies or any of the components that make it up, shall be punished with imprisonment of four to eight years and a fine of forty to eighty tax units."</p>
+                    <p class="mb-2"><strong>• Article 11 (Computer espionage / Interception of user data):</strong> "Anyone who improperly obtains, reveals or disseminates the data or information contained in a system that uses information technologies or any of its components, shall be punished with imprisonment of four to eight years and a fine of forty to eighty tax units."</p>
+                `
+            },
+            pt: {
+                label: 'Marco regulatório',
+                title: 'MARCO REGULATÓRIO PARA O USO DE UMA REDE WI-FI PÚBLICA',
+                backLink: 'Voltar à página principal',
+                content: `
+                    <h2 class="mb-4 text-xl font-semibold text-brand-cyan">1. Bloco de Democratização e Acesso Prioritário</h2>
+                    <p class="mb-2 font-semibold">Constituição da República Bolivariana da Venezuela (CRBV)</p>
+                    <p class="mb-2"><strong>• Artigo 108:</strong> "O Estado garantirá os serviços públicos de rádio, televisão e redes de bibliotecas e informática, com o fim de permitir o acesso à informação. Os centros educativos devem incorporar o conhecimento e a aplicação das novas tecnologias, nos termos que estabeleça a lei."</p>
+                    <p class="mb-2"><strong>• Artigo 110:</strong> "O Estado reconhecerá o interesse público da ciência, tecnologia, conhecimento, inovação e suas aplicações e os serviços de informação necessários por serem instrumentos fundamentais para o desenvolvimento econômico, social e político do país, bem como para a segurança e soberania nacional..."</p>
+                    <p class="mb-2"><strong>Decreto n.º 825 (Gaceta Oficial n.º 36.955)</strong></p>
+                    <p class="mb-2"><strong>• Artigo 1:</strong> "Declara-se o acesso e o uso de Internet como política prioritária para o desenvolvimento cultural, econômico, social e político da República Bolivariana da Venezuela."</p>
+                    <p class="mb-2"><strong>Lei de Infogoverno (Gaceta Oficial n.º 40.274)</strong></p>
+                    <p class="mb-2"><strong>• Artigo 20 (Garantia de participação e uso de tecnologias livres):</strong> "O Poder Público e o Poder Popular estão obrigados a garantir, em seus portais de internet, o exercício do direito das pessoas a participar, colaborar e promover o uso das tecnologias de informação livres, criação de novos serviços eletrônicos ou melhoria dos existentes."</p>
+
+                    <h2 class="mt-8 mb-4 text-xl font-semibold text-brand-cyan">2. Bloco de Regulação Técnica e Uso do Espectro</h2>
+                    <p class="mb-2 font-semibold">Lei Orgânica de Telecomunicações (LOTEL)</p>
+                    <p class="mb-2"><strong>• Artigo 4 (Definição de Telecomunicações e Espectro):</strong> "Para os efeitos desta Lei, entende-se por telecomunicações toda transmissão, emissão ou recepção de sinais, sinais, imagens, sons ou informações de qualquer natureza por fio, radioeletricidade, meios ópticos ou outros sistemas eletromagnéticos. Entende-se por espectro radioelétrico a porção do espaço ao redor da Terra por meio da qual podem propagar-se ondas eletromagnéticas cujas frequências estão fixadas convencionalmente abaixo de três mil gigahertz (3000 GHz), sem guia artificial."</p>
+                    <p class="mb-2"><strong>• Artigo 5 (Interesse Geral):</strong> "O estabelecimento ou exploração de redes de telecomunicações, assim como a prestação de serviços de telecomunicações, são considerados atividades de interesse geral, para cujo exercício se requererá a obtenção prévia da correspondente habilitação administrativa, concessão ou permissão, nos termos estabelecidos nesta Lei e seus regulamentos..."</p>
+                    <p class="mb-2"><strong>• Artigo 23, numeral 2 (Exceção de uso livre para routers/APs):</strong> "Não se requererá habilitação administrativa nem concessão para: (...) 2. O uso de equipamentos radioelétricos qualificados tecnicamente pela Comissão Nacional de Telecomunicações como de uso livre, em conformidade com o Quadro Nacional de Atribuição de Bandas de Frequência."</p>
+                    <p class="mb-2"><strong>• Artigo 75 (Links transitórios e testes piloto):</strong> "Não se requererá a obtenção de uma concessão de uso do espectro radioelétrico para: 1. Links transitórios ponto a ponto (...) cuja duração não exceda três dias contínuos. 2. Testes piloto experimentais autorizados pela Comissão Nacional de Telecomunicações, cuja duração não exceda três meses. 3. O uso das bandas de frequências que a Comissão Nacional de Telecomunicações qualifique como de uso livre..."</p>
+                    <p class="mb-2"><strong>Quadro Nacional de Atribuição de Bandas de Frequência (CUNABAF)</strong></p>
+                    <p class="mb-2"><strong>• Atribuição de Bandas Livres (Resumo Técnico aplicável a redes WLAN):</strong> Estabelece que as bandas de frequências industriais, científicas e médicas (ISM) de 2400 MHz a 2483,5 MHz e as bandas do serviço de acesso sem fio (incluindo redes U-NII nas faixas de 5 GHz) são de uso livre. Isso autoriza qualquer cidadão ou comunidade a operar equipamentos sob o padrão 802.11 (Wi-Fi) sem necessidade de atribuição exclusiva de frequências, desde que não ultrapassem as potências máximas de transmissão estabelecidas (geralmente 1 W ou 4 W EIRP conforme a banda).</p>
+
+                    <h2 class="mt-8 mb-4 text-xl font-semibold text-brand-cyan">3. Bloco de Direitos, Deveres e Segurança da Informação</h2>
+                    <p class="mb-2 font-semibold">Lei Orgânica de Telecomunicações (LOTEL) - Relação de Usuários</p>
+                    <p class="mb-2"><strong>• Artigo 12 (Direitos do Usuário):</strong> "Os usuários e usuárias dos serviços de telecomunicações gozam dos seguintes direitos: 1. Acessar, em igualdade de condições, os serviços de telecomunicações públicos. 2. A privacidade, confidencialidade e inviolabilidade de suas telecomunicações, salvo ordem judicial expedida de conformidade com a lei..."</p>
+                    <p class="mb-2"><strong>• Artigo 13 (Deveres do Usuário):</strong> "Os usuários e usuárias dos serviços de telecomunicações têm os seguintes deveres: 1. Pagar oportunamente os serviços que recebam... (...) 2. Fazer um uso adequado e lícito das redes e serviços de telecomunicações. 3. Colaborar com a Comissão Nacional de Telecomunicações informando sobre as infrações ou irregularidades das quais tenham conhecimento."</p>
+                    <p class="mb-2"><strong>Lei Contra os Delitos Informáticos (Gaceta Oficial n.º 37.319)</strong></p>
+                    <p class="mb-2"><strong>• Artigo 6 (Acesso indevido aos sistemas de administração do Wi-Fi):</strong> "Aquele que, sem a devida autorização ou excedendo a que houvesse obtido, acesse, intercepte, interfira ou use um sistema que utilize tecnologias de informação, será sancionado com prisão de um a cinco anos e multa de dez a cinquenta unidades tributárias."</p>
+                    <p class="mb-2"><strong>• Artigo 7 (Sabotagem ou dano a sistemas):</strong> "Aquele que destruir, danificar, modificar ou realizar qualquer ato que altere o funcionamento ou inutilize um sistema que utilize tecnologias de informação ou quaisquer dos componentes que o integram, será sancionado com prisão de quatro a oito anos e multa de quarenta a oitenta unidades tributárias."</p>
+                    <p class="mb-2"><strong>• Artigo 11 (Espionagem informática / Interceptação de dados de usuários):</strong> "Aquele que indevidamente obtenha, revele ou divulgue os dados ou informações contidos em um sistema que utilize tecnologias de informação ou em qualquer um de seus componentes, será sancionado com prisão de quatro a oito anos e multa de quarenta a oitenta unidades tributárias."</p>
+                `
+            },
+            ru: {
+                label: 'Регуляторная база',
+                title: 'РЕГУЛЯТОРНАЯ БАЗА ДЛЯ ИСПОЛЬЗОВАНИЯ ПУБЛИЧНОЙ WI-FI СЕТИ',
+                backLink: 'Вернуться на главную страницу',
+                content: `
+                    <h2 class="mb-4 text-xl font-semibold text-brand-cyan">1. Блок демократизации и приоритетного доступа</h2>
+                    <p class="mb-2 font-semibold">Конституция Боливарианской Республики Венесуэла (CRBV)</p>
+                    <p class="mb-2"><strong>• Статья 108:</strong> "Государство гарантирует общественные услуги радио, телевидения и сетей библиотек и информатики, с целью обеспечить доступ к информации. Образовательные центры должны включать знание и применение новых технологий в тех условиях, которые установит закон."</p>
+                    <p class="mb-2"><strong>• Статья 110:</strong> "Государство признает общественный интерес науки, технологий, знаний, инноваций и их применений, а также информационные услуги, необходимые потому, что они являются фундаментальными инструментами экономического, социального и политического развития страны, а также национальной безопасности и суверенитета..."</p>
+                    <p class="mb-2"><strong>Указ № 825 (Официальный вестник № 36.955)</strong></p>
+                    <p class="mb-2"><strong>• Статья 1:</strong> "Доступ и использование Интернета объявляются приоритетной политикой для культурного, экономического, социального и политического развития Боливарианской Республики Венесуэла."</p>
+                    <p class="mb-2"><strong>Закон об Инфоговернменте (Официальный вестник № 40.274)</strong></p>
+                    <p class="mb-2"><strong>• Статья 20 (Гарантия участия и использования свободных технологий):</strong> "Государственная власть и Народная власть обязаны гарантировать, на своих интернет-порталах, осуществление права людей участвовать, сотрудничать и поощрять использование свободных информационных технологий, создание новых электронных услуг или улучшение существующих."</p>
+
+                    <h2 class="mt-8 mb-4 text-xl font-semibold text-brand-cyan">2. Блок технического регулирования и использования спектра</h2>
+                    <p class="mb-2 font-semibold">Основной закон о телекоммуникациях (LOTEL)</p>
+                    <p class="mb-2"><strong>• Статья 4 (Определение телекоммуникаций и спектра):</strong> "Для целей настоящего Закона под телекоммуникациями понимаются любые передача, излучение или прием знаков, сигналов, изображений, звуков или информации любого характера по проводам, радиосвязи, оптическим средствам или другим электромагнитным системам. Под радиочастотным спектром понимается часть пространства вокруг Земли, через которую могут распространяться электромагнитные волны с частотами, обычно установленными ниже трех тысяч гигагерц (3000 ГГц), без искусственного направления."</p>
+                    <p class="mb-2"><strong>• Статья 5 (Общий интерес):</strong> "Создание или эксплуатация телекоммуникационных сетей, а также предоставление телекоммуникационных услуг считаются видами деятельности общего интереса, для осуществления которых требуется предварительное административное разрешение, концессия или лицензия в соответствии с условиями, установленными настоящим Законом и его правилами..."</p>
+                    <p class="mb-2"><strong>• Статья 23, пункт 2 (Исключение для свободного использования роутеров/AP):</strong> "Административное разрешение или концессия не требуются для: (...) 2. Использования радиооборудования, технически квалифицированного Национальной комиссией по телекоммуникациям как свободного использования, в соответствии с Национальной таблицей распределения частот."</p>
+                    <p class="mb-2"><strong>• Статья 75 (Переходные ссылки и пилотные испытания):</strong> "Получение концессии на использование радиоспектра не требуется для: 1. Временных точечных соединений (...) продолжительностью не более трех consecutive days. 2. Экспериментальных пилотных испытаний, разрешенных Национальной комиссией по телекоммуникациям, продолжительностью не более трех месяцев. 3. Использования частотных диапазонов, которые Национальная комиссия по телекоммуникациям квалифицирует как свободные..."</p>
+                    <p class="mb-2"><strong>Национальная таблица распределения частот (CUNABAF)</strong></p>
+                    <p class="mb-2"><strong>• Распределение свободных диапазонов (технический документ, применимый к WLAN):</strong> Устанавливает, что промышленные, научные и медицинские (ISM) частотные диапазоны от 2400 МГц до 2483,5 МГц и диапазоны беспроводного доступа (включая сети U-NII в диапазонах 5 ГГц) являются свободными. Это позволяет любому гражданину или сообществу использовать оборудование по стандарту 802.11 (Wi-Fi) без необходимости эксклюзивного назначения частот, при условии, что они не превышают максимальные установленные мощности передачи (обычно 1 Вт или 4 Вт EIRP в зависимости от диапазона).</p>
+
+                    <h2 class="mt-8 mb-4 text-xl font-semibold text-brand-cyan">3. Блок прав, обязанностей и безопасности информации</h2>
+                    <p class="mb-2 font-semibold">Основной закон о телекоммуникациях (LOTEL) - Отношения с пользователями</p>
+                    <p class="mb-2"><strong>• Статья 12 (Права пользователя):</strong> "Пользователи телекоммуникационных услуг пользуются следующими правами: 1. Доступ к государственным телекоммуникационным услугам на равных условиях. 2. Конфиденциальность, секретность и неприкосновенность своих телекоммуникаций, кроме судебного ордера, выданного в соответствии с законом..."</p>
+                    <p class="mb-2"><strong>• Статья 13 (Обязанности пользователя):</strong> "Пользователи телекоммуникационных услуг несут следующие обязанности: 1. Своевременно оплачивать полученные услуги... (...) 2. Правомерно и надлежащим образом использовать телекоммуникационные сети и службы. 3. Сотрудничать с Национальной комиссией по телекоммуникациям, сообщая о нарушениях или аномалиях, о которых им известно."</p>
+                    <p class="mb-2"><strong>Закон против компьютерных преступлений (Официальный вестник № 37.319)</strong></p>
+                    <p class="mb-2"><strong>• Статья 6 (Неправомерный доступ к системам управления Wi-Fi):</strong> "Тот, кто без надлежащего разрешения или сверх полученного доступа, вмешивается, перехватывает или использует систему, использующую информационные технологии, будет наказан лишением свободы на один-пять лет и штрафом от десяти до пятидесяти налоговых единиц."</p>
+                    <p class="mb-2"><strong>• Статья 7 (Саботаж или повреждение систем):</strong> "Тот, кто уничтожает, повреждает, изменяет или совершает любое действие, нарушающее работу или делающие систему непригодной, использующую информационные технологии или любые их компоненты, будет наказан лишением свободы на четыре-восемь лет и штрафом от сорока до восьмидесяти налоговых единиц."</p>
+                    <p class="mb-2"><strong>• Статья 11 (Компьютерный шпионаж / Перехват данных пользователей):</strong> "Тот, кто неправомерно получает, раскрывает или распространяет данные или информацию, содержащиеся в системе, использующей информационные технологии или любые ее компоненты, будет наказан лишением свободы на четыре-восемь лет и штрафом от сорока до восьмидесяти налоговых единиц."</p>
+                `
+            }
+        };
+
+        function setLanguage(lang) {
+            const dict = translations[lang];
+            document.documentElement.lang = lang;
+            document.getElementById('page-label').innerText = dict.label;
+            document.getElementById('page-title').innerText = dict.title;
+            document.getElementById('content').innerHTML = dict.content;
+            document.getElementById('back-link').innerText = dict.backLink;
+
+            document.querySelectorAll('.lang-btn').forEach((btn) => {
+                btn.classList.remove('bg-brand-cyan', 'text-slate-950');
+                btn.classList.add('text-brand-cyan');
+            });
+
+            const activeBtn = Array.from(document.querySelectorAll('.lang-btn')).find((btn) => btn.innerText === (lang === 'es' ? 'Español' : lang === 'en' ? 'English' : lang === 'pt' ? 'Português' : 'Русский'));
+            if (activeBtn) {
+                activeBtn.classList.add('bg-brand-cyan', 'text-slate-950');
+                activeBtn.classList.remove('text-brand-cyan');
+            }
+        }
+
+        setLanguage('es');
+    </script>
 </body>
 </html>
