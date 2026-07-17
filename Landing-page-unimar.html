@@ -105,24 +105,15 @@
                     <label class="flex items-start space-x-3 cursor-pointer group">
                         <input type="checkbox" id="termsCheck" class="mt-1 rounded bg-slate-900 border-brand-cyan text-brand-button focus:ring-brand-cyan/30 h-4 w-4 transition duration-300 cursor-pointer">
                         <span id="lbl-terms" class="text-xs text-gray-300 leading-tight group-hover:text-white transition-colors">
-                            Acepto la <span onclick="toggleNorms(event)" class="text-brand-cyan underline font-semibold hover:text-cyan-300">Guía de Uso del Wi-Fi</span>.
+                            Acepto la <a href="#" onclick="toggleNorms(event)" class="text-brand-cyan underline font-semibold hover:text-cyan-300">Guía de Uso del Wi-Fi</a>.
                         </span>
                     </label>
                     <p id="terms-error" class="text-red-400 text-xs mt-1 hidden"></p>
-                </div>
-
-                <!-- Updated Norms Section (7 Rules) -->
-                <div id="normsSection" class="hidden max-h-48 overflow-y-auto custom-scrollbar mb-6 text-left p-3.5 bg-slate-950/80 border border-brand-cyan/30 rounded-xl text-[11px] text-gray-400 leading-relaxed transition-all duration-300">
-                    <h3 id="norms-header" class="font-bold text-gray-200 mb-2 uppercase tracking-wide">Guía de Uso - Internet Gratuito en la Plaza:</h3>
-                    <ul class="space-y-2">
-                        <li id="rule-1"><strong class="text-gray-200">1. CONEXIÓN:</strong> Busca y selecciona la red Wi-Fi "VALLE_LIBRE" en tu dispositivo.</li>
-                        <li id="rule-2"><strong class="text-gray-200">2. TIEMPO LÍMITE:</strong> La conexión tiene un máximo de 60 minutos por dispositivo.</li>
-                        <li id="rule-3"><strong class="text-gray-200">3. USO RESPONSABLE:</strong> Prioriza la navegación informativa y de comunicación para beneficio de todos.</li>
-                        <li id="rule-4"><strong class="text-gray-200">4. SEGURIDAD:</strong> Evita realizar transacciones bancarias o ingresar datos personales sensibles.</li>
-                        <li id="rule-5"><strong class="text-gray-200">5. CONTENIDO:</strong> Queda prohibido el acceso a contenidos ilícitos o inapropiados en espacios públicos.</li>
-                        <li id="rule-6"><strong class="text-gray-200">6. DESCONEXIÓN:</strong> Al cumplirse los 60 minutos, el sistema te desconectará automáticamente.</li>
-                        <li id="rule-7"><strong class="text-gray-200">7. NORMATIVA:</strong> El uso del servicio implica la aceptación de las normas de convivencia digital.</li>
-                    </ul>
+                    <p class="mt-2">
+                        <a id="regulatory-link" href="marco-regulatorio.html" class="inline-flex items-center text-xs font-semibold text-brand-cyan underline hover:text-cyan-300">
+                            Ver marco regulatorio completo
+                        </a>
+                    </p>
                 </div>
 
                 <button onclick="validateAndConnect()" id="s2-btn" class="w-full bg-brand-button hover:bg-brand-buttonHover text-white font-bold py-3 px-6 rounded-2xl shadow-lg hover:shadow-cyan-500/20 active:scale-95 transition-all duration-300 text-base uppercase tracking-wider">
@@ -157,28 +148,54 @@
         &copy; 2026 Servicio Comunitario - UNIMAR
     </footer>
 
+    <div id="normsModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/80 px-4 py-6" onclick="toggleNorms(event)">
+        <div class="w-full max-w-lg rounded-[24px] border border-brand-cyan/30 bg-slate-950/95 p-5 shadow-2xl shadow-black/50" onclick="event.stopPropagation()">
+            <div class="flex items-start justify-between gap-4 mb-4">
+                <div>
+                    <h3 id="norms-header" class="text-base font-bold uppercase tracking-wide text-brand-cyan">Guía de Uso - Internet Gratuito en la Plaza:</h3>
+                    <p id="norms-intro" class="mt-2 text-xs text-gray-400 leading-relaxed"></p>
+                </div>
+                <button type="button" onclick="event.stopPropagation(); toggleNorms(event)" class="rounded-full border border-brand-cyan/40 px-2.5 py-1 text-xs text-gray-300 hover:bg-brand-cyan/20">✕</button>
+            </div>
+            <div id="modal-content" class="max-h-[60vh] overflow-y-auto custom-scrollbar space-y-2 pr-1 text-[11px] text-gray-300 leading-relaxed">
+                <ul class="space-y-2">
+                    <li><strong class="text-gray-200">1. CONEXIÓN:</strong> Busca y selecciona la red Wi-Fi "VALLE_LIBRE" en tu dispositivo.</li>
+                    <li><strong class="text-gray-200">2. TIEMPO LÍMITE:</strong> La conexión tiene un máximo de 60 minutos por dispositivo.</li>
+                    <li><strong class="text-gray-200">3. USO RESPONSABLE:</strong> Prioriza la navegación informativa y de comunicación para beneficio de todos.</li>
+                    <li><strong class="text-gray-200">4. SEGURIDAD:</strong> Evita realizar transacciones bancarias o ingresar datos personales sensibles.</li>
+                    <li><strong class="text-gray-200">5. CONTENIDO:</strong> Queda prohibido el acceso a contenidos ilícitos o inapropiados en espacios públicos.</li>
+                    <li><strong class="text-gray-200">6. DESCONEXIÓN:</strong> Al cumplirse los 60 minutos, el sistema te desconectará automáticamente.</li>
+                    <li><strong class="text-gray-200">7. NORMATIVA:</strong> El uso del servicio implica la aceptación de las normas de convivencia digital.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
     <!-- INTERACTIVE STATE JAVASCRIPT -->
     <script>
         let currentLang = 'es';
+        const languageOrder = ['es', 'en', 'pt', 'ru'];
         const translations = {
             es: {
-                flag: "🇺🇸",
-                langText: "English",
+                flag: "🇪🇸",
+                langText: "Español",
                 s1Title: "Bienvenido a El Valle del Espíritu Santo...",
                 s1Subtitle: "Conéctate Gratis!!",
                 s1Btn: "Click Aquí",
                 s2Title: "Acceso a la Red",
                 lblEmail: "Correo Electrónico",
                 emailPlaceholder: "nombre@correo.com",
-                lblTerms: 'Acepto la <span onclick="toggleNorms(event)" class="text-brand-cyan underline font-semibold hover:text-cyan-300">Guía de Uso del Wi-Fi</span>.',
+                lblTerms: 'Acepto la <a href="#" onclick="toggleNorms(event)" class="text-brand-cyan underline font-semibold hover:text-cyan-300">Guía de Uso del Wi-Fi</a>.',
+                regulatoryLink: 'Ver marco regulatorio completo',
                 normsHeader: "Guía de Uso - Internet Gratuito en la Plaza:",
-                rule1: '<strong class="text-gray-200">1. CONEXIÓN:</strong> Busca y selecciona la red Wi-Fi "VALLE_LIBRE" en tu dispositivo.',
-                rule2: '<strong class="text-gray-200">2. TIEMPO LÍMITE:</strong> La conexión tiene un máximo de 60 minutos por dispositivo.',
-                rule3: '<strong class="text-gray-200">3. USO RESPONSABLE:</strong> Prioriza la navegación informativa y de comunicación para beneficio de todos.',
-                rule4: '<strong class="text-gray-200">4. SEGURIDAD:</strong> Evita realizar transacciones bancarias o ingresar datos personales sensibles.',
-                rule5: '<strong class="text-gray-200">5. CONTENIDO:</strong> Queda prohibido el acceso a contenidos ilícitos o inapropiados en espacios públicos.',
-                rule6: '<strong class="text-gray-200">6. DESCONEXIÓN:</strong> Al cumplirse los 60 minutos, el sistema te desconectará automáticamente.',
-                rule7: '<strong class="text-gray-200">7. NORMATIVA:</strong> El uso del servicio implica la aceptación de las normas de convivencia digital.',
+                normsIntro: "",
+                rule1: 'Busca y selecciona la red Wi-Fi "VALLE_LIBRE" en tu dispositivo.',
+                rule2: 'La conexión tiene un máximo de 60 minutos por dispositivo.',
+                rule3: 'Prioriza la navegación informativa y de comunicación para beneficio de todos.',
+                rule4: 'Evita realizar transacciones bancarias o ingresar datos personales sensibles.',
+                rule5: 'Queda prohibido el acceso a contenidos ilícitos o inapropiados en espacios públicos.',
+                rule6: 'Al cumplirse los 60 minutos, el sistema te desconectará automáticamente.',
+                rule7: 'El uso del servicio implica la aceptación de las normas de convivencia digital.',
                 s2Btn: "Conectar",
                 s3Title: "¡Conexión Exitosa!",
                 s3Subtitle: "Ya puedes navegar libremente por internet.",
@@ -189,23 +206,25 @@
                 errTerms: "Debes aceptar la guía de uso para continuar."
             },
             en: {
-                flag: "🇻🇪",
-                langText: "Español",
+                flag: "🇺🇸",
+                langText: "English",
                 s1Title: "Welcome to El Valle del Espíritu Santo...",
                 s1Subtitle: "Connect for Free!!",
                 s1Btn: "Click Here",
                 s2Title: "Network Access",
                 lblEmail: "Email Address",
                 emailPlaceholder: "name@email.com",
-                lblTerms: 'I accept the <span onclick="toggleNorms(event)" class="text-brand-cyan underline font-semibold hover:text-cyan-300">Wi-Fi Usage Guide</span>.',
-                normsHeader: "Usage Guide - Free Internet in the Square:",
-                rule1: '<strong class="text-gray-200">1. CONNECTION:</strong> Search and select the "VALLE_LIBRE" Wi-Fi network on your device.',
-                rule2: '<strong class="text-gray-200">2. TIME LIMIT:</strong> The connection has a maximum of 60 minutes per device.',
-                rule3: '<strong class="text-gray-200">3. RESPONSIBLE USE:</strong> Prioritize informational and communication browsing for the benefit of all.',
-                rule4: '<strong class="text-gray-200">4. SECURITY:</strong> Avoid carrying out bank transactions or entering sensitive personal data.',
-                rule5: '<strong class="text-gray-200">5. CONTENT:</strong> Access to illicit or inappropriate content in public spaces is prohibited.',
-                rule6: '<strong class="text-gray-200">6. DISCONNECTION:</strong> After 60 minutes, the system will automatically disconnect you.',
-                rule7: '<strong class="text-gray-200">7. REGULATIONS:</strong> Use of the service implies acceptance of digital coexistence rules.',
+                lblTerms: 'I accept the <a href="#" onclick="toggleNorms(event)" class="text-brand-cyan underline font-semibold hover:text-cyan-300">Wi-Fi Usage Guide</a>.',
+                regulatoryLink: 'View the full regulatory framework',
+                normsHeader: "Wi-Fi Usage Guide - Free Internet in the Square:",
+                normsIntro: "",
+                rule1: 'Search and select the "VALLE_LIBRE" Wi-Fi network on your device.',
+                rule2: 'The connection has a maximum of 60 minutes per device.',
+                rule3: 'Prioritize informational and communication browsing for the benefit of all.',
+                rule4: 'Avoid carrying out bank transactions or entering sensitive personal data.',
+                rule5: 'Access to illicit or inappropriate content in public spaces is prohibited.',
+                rule6: 'After 60 minutes, the system will automatically disconnect you.',
+                rule7: 'Use of the service implies acceptance of digital coexistence rules.',
                 s2Btn: "Connect",
                 s3Title: "Connection Successful!",
                 s3Subtitle: "You can now browse the internet freely.",
@@ -214,13 +233,73 @@
                 errEmailEmpty: "Please enter your email address.",
                 errEmailInvalid: "Please enter a valid email format.",
                 errTerms: "You must accept the usage guide to continue."
+            },
+            pt: {
+                flag: "🇵🇹",
+                langText: "Português",
+                s1Title: "Bem-vindo ao El Valle del Espírito Santo...",
+                s1Subtitle: "Conecte-se grátis!!",
+                s1Btn: "Clique Aqui",
+                s2Title: "Acesso à Rede",
+                lblEmail: "Endereço de E-mail",
+                emailPlaceholder: "nome@email.com",
+                lblTerms: 'Aceito o <a href="#" onclick="toggleNorms(event)" class="text-brand-cyan underline font-semibold hover:text-cyan-300">Guia de Uso do Wi-Fi</a>.',
+                regulatoryLink: 'Ver o marco regulatório completo',
+                normsHeader: "Guia de Uso - Internet Gratuita na Praça:",
+                normsIntro: "",
+                rule1: 'Procure e selecione a rede Wi-Fi "VALLE_LIBRE" no seu dispositivo.',
+                rule2: 'A conexão tem um máximo de 60 minutos por dispositivo.',
+                rule3: 'Priorize a navegação informativa e de comunicação para o benefício de todos.',
+                rule4: 'Evite realizar transações bancárias ou inserir dados pessoais sensíveis.',
+                rule5: 'O acesso a conteúdos ilícitos ou inadequados em espaços públicos é proibido.',
+                rule6: 'Quando os 60 minutos acabarem, o sistema irá desconectar você automaticamente.',
+                rule7: 'O uso do serviço implica a aceitação das normas de convivência digital.',
+                s2Btn: "Conectar",
+                s3Title: "Conexão Bem-Sucedida!",
+                s3Subtitle: "Agora você pode navegar na internet livremente.",
+                lblTimerTitle: "Tempo de Uso Restante",
+                s3Info: "Quando o tempo acabar, o sistema irá desconectar você automaticamente.",
+                errEmailEmpty: "Por favor, informe seu endereço de e-mail.",
+                errEmailInvalid: "Informe um formato de e-mail válido.",
+                errTerms: "Você precisa aceitar o guia de uso para continuar."
+            },
+            ru: {
+                flag: "🇷🇺",
+                langText: "Русский",
+                s1Title: "Добро пожаловать в El Valle del Espíritu Santo...",
+                s1Subtitle: "Подключайтесь бесплатно!!",
+                s1Btn: "Нажмите здесь",
+                s2Title: "Доступ к сети",
+                lblEmail: "Электронная почта",
+                emailPlaceholder: "name@email.com",
+                lblTerms: 'Я принимаю <a href="#" onclick="toggleNorms(event)" class="text-brand-cyan underline font-semibold hover:text-cyan-300">Руководство по использованию Wi-Fi</a>.',
+                regulatoryLink: 'Открыть полный регуляторный рамочный документ',
+                normsHeader: "Руководство по использованию — бесплатный интернет на площади:",
+                normsIntro: "",
+                rule1: 'Найдите и выберите сеть Wi-Fi "VALLE_LIBRE" на своем устройстве.',
+                rule2: 'Подключение имеет максимум 60 минут на одно устройство.',
+                rule3: 'Отдавайте приоритет навигации в информационных и коммуникационных целях для блага всех.',
+                rule4: 'Избегайте банковских транзакций и ввода чувствительных персональных данных.',
+                rule5: 'Доступ к незаконному или неподобающему контенту в общественных местах запрещен.',
+                rule6: 'По истечении 60 минут система автоматически отключит вас.',
+                rule7: 'Использование сервиса означает принятие правил цифрового сосуществования.',
+                s2Btn: "Подключить",
+                s3Title: "Подключение успешно!",
+                s3Subtitle: "Теперь вы можете свободно пользоваться интернетом.",
+                lblTimerTitle: "Оставшееся время использования",
+                s3Info: "Когда время истечет, система автоматически отключит вас.",
+                errEmailEmpty: "Пожалуйста, введите адрес электронной почты.",
+                errEmailInvalid: "Введите действительный формат электронной почты.",
+                errTerms: "Вы должны принять руководство по использованию, чтобы продолжить."
             }
         };
 
         function toggleLanguage() {
-            currentLang = currentLang === 'es' ? 'en' : 'es';
+            const currentIndex = languageOrder.indexOf(currentLang);
+            currentLang = languageOrder[(currentIndex + 1) % languageOrder.length];
             const dict = translations[currentLang];
 
+            document.documentElement.lang = currentLang;
             document.getElementById('langFlag').innerText = dict.flag;
             document.getElementById('langText').innerText = dict.langText;
             document.getElementById('s1-title').innerText = dict.s1Title;
@@ -230,16 +309,21 @@
             document.getElementById('lbl-email').innerText = dict.lblEmail;
             document.getElementById('email').placeholder = dict.emailPlaceholder;
             document.getElementById('lbl-terms').innerHTML = dict.lblTerms;
+            document.getElementById('regulatory-link').innerText = dict.regulatoryLink;
             document.getElementById('norms-header').innerText = dict.normsHeader;
-            
-            // Update 7 rules using innerHTML to keep the strong tags
-            document.getElementById('rule-1').innerHTML = dict.rule1;
-            document.getElementById('rule-2').innerHTML = dict.rule2;
-            document.getElementById('rule-3').innerHTML = dict.rule3;
-            document.getElementById('rule-4').innerHTML = dict.rule4;
-            document.getElementById('rule-5').innerHTML = dict.rule5;
-            document.getElementById('rule-6').innerHTML = dict.rule6;
-            document.getElementById('rule-7').innerHTML = dict.rule7;
+            document.getElementById('norms-intro').innerText = dict.normsIntro;
+            document.getElementById('modal-content').innerHTML = `
+                <p class="text-[10px] text-gray-500 mb-3 leading-relaxed">${dict.normsIntro}</p>
+                <ul class="space-y-2">
+                    <li><strong class="text-gray-200">${dict.rule1}</strong></li>
+                    <li><strong class="text-gray-200">${dict.rule2}</strong></li>
+                    <li><strong class="text-gray-200">${dict.rule3}</strong></li>
+                    <li><strong class="text-gray-200">${dict.rule4}</strong></li>
+                    <li><strong class="text-gray-200">${dict.rule5}</strong></li>
+                    <li><strong class="text-gray-200">${dict.rule6}</strong></li>
+                    <li><strong class="text-gray-200">${dict.rule7}</strong></li>
+                </ul>
+            `;
             
             document.getElementById('s2-btn').innerText = dict.s2Btn;
             document.getElementById('s3-title').innerText = dict.s3Title;
@@ -262,9 +346,17 @@
         }
 
         function toggleNorms(event) {
-            event.preventDefault();
-            const norms = document.getElementById('normsSection');
-            norms.classList.toggle('hidden');
+            if (event) {
+                event.preventDefault();
+            }
+            const modal = document.getElementById('normsModal');
+            if (modal.classList.contains('hidden')) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            } else {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }
         }
 
         function clearErrors() {
