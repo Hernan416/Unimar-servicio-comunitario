@@ -177,16 +177,15 @@
 
     <!-- MODAL DE VIDEO LOCAL (ANTES/DESPUES) -->
     <div id="videoModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/80 px-4 py-6" onclick="toggleVideoModal(event)">
-        <div class="w-full max-w-xl rounded-[24px] border border-brand-cyan/30 bg-slate-950/95 p-5 shadow-2xl shadow-black/50" onclick="event.stopPropagation()">
+        <div class="w-full max-w-sm rounded-[24px] border border-brand-cyan/30 bg-slate-950/95 p-5 shadow-2xl shadow-black/50" onclick="event.stopPropagation()">
             <div class="flex items-start justify-between gap-4 mb-4">
                 <h3 id="video-modal-header" class="text-base font-bold uppercase tracking-wide text-brand-cyan">Video Demostrativo (Antes / Después)</h3>
                 <button type="button" onclick="event.stopPropagation(); toggleVideoModal(event)" class="rounded-full border border-brand-cyan/40 px-2.5 py-1 text-xs text-gray-300 hover:bg-brand-cyan/20">✕</button>
             </div>
-            <div class="w-full aspect-video rounded-xl overflow-hidden bg-black flex items-center justify-center">
-                <!-- Se enlaza directamente tu archivo local descargado en la carpeta del proyecto -->
-                <video controls class="w-full h-full object-contain">
-                    <source src="Presentación simple moderna profesional geométrica verde_20260726_233843_0000.mp4" type="video/mp4">
-                    Tu navegador no soporta la reproducción de videos.
+            <div class="w-full max-w-[260px] mx-auto aspect-[9/16] rounded-xl overflow-hidden bg-black flex items-center justify-center shadow-inner">
+                <video id="localVideo" class="w-full h-full object-cover" controls playsinline preload="metadata">
+                    <source src="VID-20260726-WA0660.mp4" type="video/mp4">
+                    Tu navegador no soporta la reproducción de video.
                 </video>
             </div>
         </div>
