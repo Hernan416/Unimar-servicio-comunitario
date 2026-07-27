@@ -109,11 +109,14 @@
                         </span>
                     </label>
                     <p id="terms-error" class="text-red-400 text-xs mt-1 hidden"></p>
-                    <p class="mt-2">
+                    <div class="mt-2 flex flex-col space-y-1.5">
                         <a id="regulatory-link" href="marco-regulatorio.html" class="inline-flex items-center text-xs font-semibold text-brand-cyan underline hover:text-cyan-300">
                             Ver marco regulatorio completo
                         </a>
-                    </p>
+                        <a id="video-before-after-link" href="#" onclick="toggleVideoModal(event)" class="inline-flex items-center text-xs font-semibold text-brand-cyan underline hover:text-cyan-300">
+                            Ver video (antes/después)
+                        </a>
+                    </div>
                 </div>
 
                 <button onclick="validateAndConnect()" id="s2-btn" class="w-full bg-brand-button hover:bg-brand-buttonHover text-white font-bold py-3 px-6 rounded-2xl shadow-lg hover:shadow-cyan-500/20 active:scale-95 transition-all duration-300 text-base uppercase tracking-wider">
@@ -148,6 +151,7 @@
         &copy; 2026 Servicio Comunitario - UNIMAR
     </footer>
 
+    <!-- MODAL DE NORMAS -->
     <div id="normsModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/80 px-4 py-6" onclick="toggleNorms(event)">
         <div class="w-full max-w-lg rounded-[24px] border border-brand-cyan/30 bg-slate-950/95 p-5 shadow-2xl shadow-black/50" onclick="event.stopPropagation()">
             <div class="flex items-start justify-between gap-4 mb-4">
@@ -171,6 +175,23 @@
         </div>
     </div>
 
+    <!-- MODAL DE VIDEO LOCAL (ANTES/DESPUES) -->
+    <div id="videoModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/80 px-4 py-6" onclick="toggleVideoModal(event)">
+        <div class="w-full max-w-xl rounded-[24px] border border-brand-cyan/30 bg-slate-950/95 p-5 shadow-2xl shadow-black/50" onclick="event.stopPropagation()">
+            <div class="flex items-start justify-between gap-4 mb-4">
+                <h3 id="video-modal-header" class="text-base font-bold uppercase tracking-wide text-brand-cyan">Video Demostrativo (Antes / Después)</h3>
+                <button type="button" onclick="event.stopPropagation(); toggleVideoModal(event)" class="rounded-full border border-brand-cyan/40 px-2.5 py-1 text-xs text-gray-300 hover:bg-brand-cyan/20">✕</button>
+            </div>
+            <div class="w-full aspect-video rounded-xl overflow-hidden bg-black flex items-center justify-center">
+                <!-- Se enlaza directamente tu archivo local descargado en la carpeta del proyecto -->
+                <video controls class="w-full h-full object-contain">
+                    <source src="Presentación simple moderna profesional geométrica verde_20260726_233843_0000.mp4" type="video/mp4">
+                    Tu navegador no soporta la reproducción de videos.
+                </video>
+            </div>
+        </div>
+    </div>
+
     <!-- INTERACTIVE STATE JAVASCRIPT -->
     <script>
         let currentLang = 'es';
@@ -187,6 +208,7 @@
                 emailPlaceholder: "nombre@correo.com",
                 lblTerms: 'Acepto la <a href="#" onclick="toggleNorms(event)" class="text-brand-cyan underline font-semibold hover:text-cyan-300">Guía de Uso del Wi-Fi</a>.',
                 regulatoryLink: 'Ver marco regulatorio completo',
+                videoBeforeAfterLink: 'Ver video (antes/después)',
                 normsHeader: "Guía de Uso - Internet Gratuito en la Plaza:",
                 normsIntro: "",
                 rule1: '<strong class="text-gray-200">1. CONEXIÓN:</strong> Busca y selecciona la red Wi-Fi "VALLE_LIBRE" en tu dispositivo.',
@@ -196,6 +218,7 @@
                 rule5: '<strong class="text-gray-200">5. CONTENIDO:</strong> Queda prohibido el acceso a contenidos ilícitos o inapropiados en espacios públicos.',
                 rule6: '<strong class="text-gray-200">6. DESCONEXIÓN:</strong> Al cumplirse los 60 minutos, el sistema te desconectará automáticamente.',
                 rule7: '<strong class="text-gray-200">7. NORMATIVA:</strong> El uso del servicio implica la aceptación de las normas de convivencia digital.',
+                videoModalHeader: "Video Demostrativo (Antes / Después)",
                 s2Btn: "Conectar",
                 s3Title: "¡Conexión Exitosa!",
                 s3Subtitle: "Ya puedes navegar libremente por internet.",
@@ -216,6 +239,7 @@
                 emailPlaceholder: "name@email.com",
                 lblTerms: 'I accept the <a href="#" onclick="toggleNorms(event)" class="text-brand-cyan underline font-semibold hover:text-cyan-300">Wi-Fi Usage Guide</a>.',
                 regulatoryLink: 'View the full regulatory framework',
+                videoBeforeAfterLink: 'Watch video (before/after)',
                 normsHeader: "Wi-Fi Usage Guide - Free Internet in the Square:",
                 normsIntro: "",
                 rule1: '<strong class="text-gray-200">1. CONNECTION:</strong> Search and select the "VALLE_LIBRE" Wi-Fi network on your device.',
@@ -225,6 +249,7 @@
                 rule5: '<strong class="text-gray-200">5. CONTENT:</strong> Access to illicit or inappropriate content in public spaces is prohibited.',
                 rule6: '<strong class="text-gray-200">6. DISCONNECTION:</strong> After 60 minutes, the system will automatically disconnect you.',
                 rule7: '<strong class="text-gray-200">7. REGULATIONS:</strong> Use of the service implies acceptance of digital coexistence rules.',
+                videoModalHeader: "Demonstration Video (Before / After)",
                 s2Btn: "Connect",
                 s3Title: "Connection Successful!",
                 s3Subtitle: "You can now browse the internet freely.",
@@ -245,6 +270,7 @@
                 emailPlaceholder: "nome@email.com",
                 lblTerms: 'Aceito o <a href="#" onclick="toggleNorms(event)" class="text-brand-cyan underline font-semibold hover:text-cyan-300">Guia de Uso do Wi-Fi</a>.',
                 regulatoryLink: 'Ver o marco regulatório completo',
+                videoBeforeAfterLink: 'Ver vídeo (antes/depois)',
                 normsHeader: "Guia de Uso - Internet Gratuita na Praça:",
                 normsIntro: "",
                 rule1: '<strong class="text-gray-200">1. CONEXÃO:</strong> Procure e selecione a rede Wi-Fi "VALLE_LIBRE" no seu dispositivo.',
@@ -254,6 +280,7 @@
                 rule5: '<strong class="text-gray-200">5. CONTEÚDO:</strong> O acesso a conteúdos ilícitos ou inadequados em espaços públicos é proibido.',
                 rule6: '<strong class="text-gray-200">6. DESCONEXÃO:</strong> Quando os 60 minutos acabarem, o sistema irá desconectar você automaticamente.',
                 rule7: '<strong class="text-gray-200">7. NORMATIVA:</strong> O uso do serviço implica a aceitação das normas de convivência digital.',
+                videoModalHeader: "Vídeo Demonstrativo (Antes / Depois)",
                 s2Btn: "Conectar",
                 s3Title: "Conexão Bem-Sucedida!",
                 s3Subtitle: "Agora você pode navegar na internet livremente.",
@@ -274,6 +301,7 @@
                 emailPlaceholder: "name@email.com",
                 lblTerms: 'Я принимаю <a href="#" onclick="toggleNorms(event)" class="text-brand-cyan underline font-semibold hover:text-cyan-300">Руководство по использованию Wi-Fi</a>.',
                 regulatoryLink: 'Открыть полный регуляторный рамочный документ',
+                videoBeforeAfterLink: 'Смотреть видео (до/после)',
                 normsHeader: "Руководство по использованию — бесплатный интернет на площади:",
                 normsIntro: "",
                 rule1: '<strong class="text-gray-200">1. ПОДКЛЮЧЕНИЕ:</strong> Найдите и выберите сеть Wi-Fi "VALLE_LIBRE" на своем устройстве.',
@@ -283,6 +311,7 @@
                 rule5: '<strong class="text-gray-200">5. СОДЕРЖИМОЕ:</strong> Доступ к незаконному или неподобающему контенту в общественных местах запрещен.',
                 rule6: '<strong class="text-gray-200">6. ОТКЛЮЧЕНИЕ:</strong> По истечении 60 минут система автоматически отключит вас.',
                 rule7: '<strong class="text-gray-200">7. ПРАВИЛА:</strong> Использование сервиса означает принятие правил цифрового сосуществования.',
+                videoModalHeader: "Демонстрационное видео (До / После)",
                 s2Btn: "Подключить",
                 s3Title: "Подключение успешно!",
                 s3Subtitle: "Теперь вы можете свободно пользоваться интернетом.",
@@ -310,8 +339,10 @@
             document.getElementById('email').placeholder = dict.emailPlaceholder;
             document.getElementById('lbl-terms').innerHTML = dict.lblTerms;
             document.getElementById('regulatory-link').innerText = dict.regulatoryLink;
+            document.getElementById('video-before-after-link').innerText = dict.videoBeforeAfterLink;
             document.getElementById('norms-header').innerText = dict.normsHeader;
             document.getElementById('norms-intro').innerText = dict.normsIntro;
+            document.getElementById('video-modal-header').innerText = dict.videoModalHeader;
             document.getElementById('modal-content').innerHTML = `
                 <p class="text-[10px] text-gray-500 mb-3 leading-relaxed">${dict.normsIntro}</p>
                 <ul class="space-y-2">
@@ -350,6 +381,20 @@
                 event.preventDefault();
             }
             const modal = document.getElementById('normsModal');
+            if (modal.classList.contains('hidden')) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            } else {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }
+        }
+
+        function toggleVideoModal(event) {
+            if (event) {
+                event.preventDefault();
+            }
+            const modal = document.getElementById('videoModal');
             if (modal.classList.contains('hidden')) {
                 modal.classList.remove('hidden');
                 modal.classList.add('flex');
